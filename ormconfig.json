@@ -6,7 +6,7 @@
       "port": 5432,
       "username": "postgres",
       "password": "postgres",
-      "database": "test-sinbad2",
+      "database": "test-sinbad",
       "entities": ["dist/**/*.entity{.ts,.js}"],
       "synchronize": false,
       "migrations": ["dist/migrations/*{.ts,.js}"],

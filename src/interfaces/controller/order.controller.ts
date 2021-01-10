@@ -53,7 +53,7 @@ export class OrderController {
 
     @Get('/:id')
     @UsePipes(ValidationPipe)
-    getPromotionById(@Param('id', ParseUUIDPipe) id: string){
+    getOrderById(@Param('id', ParseUUIDPipe) id: string){
         return this.orderApplication.getOrderById(id);
     }
 }

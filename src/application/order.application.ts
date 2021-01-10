@@ -14,8 +14,13 @@ export class OrderApplication{
     
     async createOrder(orderInterface: OrderInterface, user: User): Promise<Order> {
         const promotion = await this.promotionService.getPromotionById(orderInterface.promotionId)
-        orderInterface.promotion = promotion;
-        orderInterface.totalPrice = await this.getTotalPrice(orderInterface.price, orderInterface.totalItem, promotion.discount);
+        if(promotion){            
+            orderInterface.promotion = promotion;
+            orderInterface.totalPrice = await this.getTotalPrice(orderInterface.price, orderInterface.totalItem, promotion.discount);
+        }else{
+            orderInterface.promotion = null;
+            orderInterface.totalPrice = await this.getTotalPrice(orderInterface.price, orderInterface.totalItem, 0);
+        }
 
         return this.orderService.createOrder(orderInterface, user)
     }

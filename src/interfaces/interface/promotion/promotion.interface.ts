@@ -8,6 +8,4 @@ export interface PromotionInterface{
     discount: number;
 
     expiredFlag?:boolean;
-
-    promotion?:Promotion;
 }

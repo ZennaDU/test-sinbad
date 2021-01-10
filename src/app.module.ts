@@ -5,10 +5,11 @@ import { UserModule } from './infrastructure/module/user.module';
 import { PromotionModule } from './infrastructure/module/promotion.module';
 import { OrderModule } from './infrastructure/module/order.module';
 import { AuthModule } from './infrastructure/module/auth.module';
+import { configService } from './infrastructure/config/ConfigService';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(typeOrmConfig), 
+    TypeOrmModule.forRoot(configService.getTypeOrmConfig()), 
     UserModule,
     PromotionModule,
     OrderModule,
